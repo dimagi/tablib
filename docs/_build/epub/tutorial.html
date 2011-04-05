@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quickstart</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="Development"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Tablib 0.9.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="quickstart">
+<span id="id1"></span><h1>Quickstart</h1>
+<span class="target" id="module-tablib"></span><p>Eager to get started? This page gives a good introduction in how to get started with Tablib. This assumes you already have Tablib installed. If you do not, head over to the <a class="reference internal" href="install.html#install"><em>Installation</em></a> section.</p>
+<p>First, make sure that:</p>
+<ul class="simple">
+<li>Tablib is <a class="reference internal" href="install.html#install"><em>installed</em></a></li>
+<li>Tablib is <a class="reference internal" href="install.html#updates"><em>up-to-date</em></a></li>
+</ul>
+<p>Lets gets started with some simple use cases and examples.</p>
+<div class="section" id="creating-a-dataset">
+<h2>Creating a Dataset</h2>
+<p>A <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> is nothing more than what its name implies—a set of data.</p>
+<p>Creating your own instance of the <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">tablib.Dataset</span></tt></a> object is simple.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can now start filling this <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object with data.</p>
+<div class="admonition-example-context admonition ">
+<p class="first admonition-title">Example Context</p>
+<p class="last">From here on out, if you see <tt class="docutils literal"><span class="pre">data</span></tt>, assume that it&#8217;s a fresh <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object.</p>
+</div>
+</div>
+<div class="section" id="adding-rows">
+<h2>Adding Rows</h2>
+<p>Let&#8217;s say you want to collect a simple list of names.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># collection of names</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Kenneth Reitz&#39;</span><span class="p">,</span> <span class="s">&#39;Bessie Monke&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="c"># split name appropriately</span>
+    <span class="n">fname</span><span class="p">,</span> <span class="n">lname</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+    <span class="c"># add names to Dataset</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">fname</span><span class="p">,</span> <span class="n">lname</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You can get a nice, Pythonic view of the dataset at any time with <a class="reference internal" href="api.html#tablib.Dataset.dict" title="tablib.Dataset.dict"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.dict</span></tt></a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">dict</span>
+<span class="go">[(&#39;Kenneth&#39;, &#39;Reitz&#39;), (&#39;Bessie&#39;, &#39;Monke&#39;)]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-headers">
+<h2>Adding Headers</h2>
+<p>It&#8217;s time enhance our <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> by giving our columns some titles. To do so, set <a class="reference internal" href="api.html#tablib.Dataset.headers" title="tablib.Dataset.headers"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.headers</span></tt></a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;First Name&#39;</span><span class="p">,</span> <span class="s">&#39;Last Name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now our data looks a little different.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">dict</span>
+<span class="go">[{&#39;Last Name&#39;: &#39;Reitz&#39;, &#39;First Name&#39;: &#39;Kenneth&#39;}, {&#39;Last Name&#39;: &#39;Monke&#39;, &#39;First Name&#39;: &#39;Bessie&#39;}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-columns">
+<h2>Adding Columns</h2>
+<p>Now that we have a basic <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> in place, let&#8217;s add a column of <strong>ages</strong> to it.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="s">&#39;Age&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s view the data now.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">dict</span>
+<span class="go">[{&#39;Last Name&#39;: &#39;Reitz&#39;, &#39;First Name&#39;: &#39;Kenneth&#39;, &#39;Age&#39;: 22}, {&#39;Last Name&#39;: &#39;Monke&#39;, &#39;First Name&#39;: &#39;Bessie&#39;, &#39;Age&#39;: 20}]</span>
+</pre></div>
+</div>
+<p>It&#8217;s that easy.</p>
+</div>
+<div class="section" id="exporting-data">
+<h2>Exporting Data</h2>
+<p>Tablib&#8217;s killer feature is the ability to export your <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> objects into a number of formats.</p>
+<p><strong>Comma-Separated Values</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">csv</span>
+<span class="go">Last Name,First Name,Age</span>
+<span class="go">Reitz,Kenneth,22</span>
+<span class="go">Monke,Bessie,20</span>
+</pre></div>
+</div>
+<p><strong>JavaScript Object Notation</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">json</span>
+<span class="go">[{&quot;Last Name&quot;: &quot;Reitz&quot;, &quot;First Name&quot;: &quot;Kenneth&quot;, &quot;Age&quot;: 22}, {&quot;Last Name&quot;: &quot;Monke&quot;, &quot;First Name&quot;: &quot;Bessie&quot;, &quot;Age&quot;: 20}]</span>
+</pre></div>
+</div>
+<p><strong>YAML Ain&#8217;t Markup Language</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">yaml</span>
+<span class="go">- {Age: 22, First Name: Kenneth, Last Name: Reitz}</span>
+<span class="go">- {Age: 20, First Name: Bessie, Last Name: Monke}</span>
+</pre></div>
+</div>
+<p><strong>Microsoft Excel</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">xls</span>
+<span class="go">&lt;censored binary data&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-rows-columns">
+<h2>Selecting Rows &amp; Columns</h2>
+<p>You can slice and dice your data, just like a standard Python list.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">(&#39;Kenneth&#39;, &#39;Reitz&#39;, 22)</span>
+</pre></div>
+</div>
+<p>If we had a set of data consisting of thousands of rows, it could be useful to get a list of values in a column.
+To do so, we access the <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> as if it were a standard Python dictionary.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="p">[</span><span class="s">&#39;First Name&#39;</span><span class="p">]</span>
+<span class="go">[&#39;Kenneth&#39;, &#39;Bessie&#39;]</span>
+</pre></div>
+</div>
+<p>Let&#8217;s find the average age.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ages</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;Age&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">float</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">ages</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
+<span class="go">21.0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="removing-rows-columns">
+<h2>Removing Rows &amp; Columns</h2>
+<p>It&#8217;s easier than you could imagine.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;Col Name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="advanced-usage">
+<h1>Advanced Usage</h1>
+<p>This part of the documentation services to give you an idea that are otherwise hard to extract from the <a class="reference internal" href="api.html#api"><em>API Documentation</em></a></p>
+<p>And now for something completely different.</p>
+<div class="section" id="dynamic-columns">
+<span id="dyncols"></span><h2>Dynamic Columns</h2>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.8.3.</span></p>
+<p>Thanks to Josh Ourisman, Tablib now supports adding dynamic columns. A dynamic column is a single callable object (<em>ie.</em> a function).</p>
+<p>Let&#8217;s add a dynamic column to our <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. In this example, we have a function that generates a random grade for our students.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">random_grade</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a random integer for entry.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="p">[</span><span class="n">random_grade</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="s">&#39;Grade&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let&#8217;s have a look at our data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">yaml</span>
+<span class="go">- {Age: 22, First Name: Kenneth, Grade: 0.6, Last Name: Reitz}</span>
+<span class="go">- {Age: 20, First Name: Bessie, Grade: 0.75, Last Name: Monke}</span>
+</pre></div>
+</div>
+<p>Let&#8217;s remove that column.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">data</span><span class="p">[</span><span class="s">&#39;Grade&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>When you add a dynamic column, the first argument that is passed in to the given callable is the current data row. You can use this to perform calculations against your data row.</p>
+<p>For example, we can use the data available in the row to guess the gender of a student.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">guess_gender</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Calculates gender of given student data row.&quot;&quot;&quot;</span>
+    <span class="n">m_names</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Kenneth&#39;</span><span class="p">,</span> <span class="s">&#39;Mike&#39;</span><span class="p">,</span> <span class="s">&#39;Yuri&#39;</span><span class="p">)</span>
+    <span class="n">f_names</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;Bessie&#39;</span><span class="p">,</span> <span class="s">&#39;Samantha&#39;</span><span class="p">,</span> <span class="s">&#39;Heather&#39;</span><span class="p">)</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">m_names</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#39;Male&#39;</span>
+    <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">f_names</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#39;Female&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">&#39;Unknown&#39;</span>
+</pre></div>
+</div>
+<p>Adding this function to our dataset as a dynamic column would result in:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">yaml</span>
+<span class="go">- {Age: 22, First Name: Kenneth, Gender: Male, Last Name: Reitz}</span>
+<span class="go">- {Age: 20, First Name: Bessie, Gender: Female, Last Name: Monke}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering-datasets-with-tags">
+<span id="tags"></span><h2>Filtering Datasets with Tags</h2>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.9.0.</span></p>
+<p>When constructing a <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object, you can add tags to rows by specifying the <tt class="docutils literal"><span class="pre">tags</span></tt> parameter.
+This allows you to filter your <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> later. This can be useful so separate rows of data based on
+arbitrary criteria (<em>e.g.</em> origin) that you don&#8217;t want to include in your <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.</p>
+<p>Let&#8217;s tag some students.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">students</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+
+<span class="n">students</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;first&#39;</span><span class="p">,</span> <span class="s">&#39;last&#39;</span><span class="p">]</span>
+
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s">&#39;Kenneth&#39;</span><span class="p">,</span> <span class="s">&#39;Reitz&#39;</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;male&#39;</span><span class="p">,</span> <span class="s">&#39;technical&#39;</span><span class="p">])</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="s">&#39;Bessie&#39;</span><span class="p">,</span> <span class="s">&#39;Monke&#39;</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;female&#39;</span><span class="p">,</span> <span class="s">&#39;creative&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Now that we have extra meta-data on our rows, we can use easily filter our <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>. Let&#8217;s just see Male students.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span><span class="o">.</span><span class="n">filter</span><span class="p">([</span><span class="s">&#39;male&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">yaml</span>
+<span class="go">- {first: Kenneth, Last: Reitz}</span>
+</pre></div>
+</div>
+<p>It&#8217;s that simple. The original <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> is untouched.</p>
+<div class="section" id="excel-workbook-with-multiple-sheets">
+<h3>Excel Workbook With Multiple Sheets</h3>
+<p>When dealing with a large number of <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Datasets</span></tt></a> in spreadsheet format, it&#8217;s quite common to group multiple spreadsheets into a single Excel file, known as a Workbook. Tablib makes it extremely easy to build workbooks with the handy, <a class="reference internal" href="api.html#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a> class.</p>
+<p>Let&#8217;s say we have 3 different <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Datasets</span></tt></a>. All we have to do is add then to a <a class="reference internal" href="api.html#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a> object...</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">book</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Databook</span><span class="p">([</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">data3</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>... and export to Excel just like <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Datasets</span></tt></a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;students.xls&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">xls</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting <strong>students.xls</strong> file will contain a separate spreadsheet for each <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object in the <a class="reference internal" href="api.html#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a>.</p>
+<div class="admonition-binary-warning admonition ">
+<p class="first admonition-title">Binary Warning</p>
+<p class="last">Make sure to open the output file in binary mode.</p>
+</div>
+</div>
+</div>
+<div class="section" id="seperators">
+<span id="id2"></span><h2>Seperators</h2>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.8.2.</span></p>
+<p>When, it&#8217;s often useful to create a blank row containing information on the upcoming data. So,</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">daniel_tests</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">&#39;11/24/09&#39;</span><span class="p">,</span> <span class="s">&#39;Math 101 Mid-term Exam&#39;</span><span class="p">,</span> <span class="mf">56.</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;05/24/10&#39;</span><span class="p">,</span> <span class="s">&#39;Math 101 Final Exam&#39;</span><span class="p">,</span> <span class="mf">62.</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">suzie_tests</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s">&#39;11/24/09&#39;</span><span class="p">,</span> <span class="s">&#39;Math 101 Mid-term Exam&#39;</span><span class="p">,</span> <span class="mf">56.</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;05/24/10&#39;</span><span class="p">,</span> <span class="s">&#39;Math 101 Final Exam&#39;</span><span class="p">,</span> <span class="mf">62.</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c"># Create new dataset</span>
+<span class="n">tests</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">tests</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;Date&#39;</span><span class="p">,</span> <span class="s">&#39;Test Name&#39;</span><span class="p">,</span> <span class="s">&#39;Grade&#39;</span><span class="p">]</span>
+
+<span class="c"># Daniel&#39;s Tests</span>
+<span class="n">tests</span><span class="o">.</span><span class="n">append_seperator</span><span class="p">(</span><span class="s">&#39;Daniel</span><span class="se">\&#39;</span><span class="s">s Scores&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">test_row</span> <span class="ow">in</span> <span class="n">daniel_tests</span><span class="p">:</span>
+   <span class="n">tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_row</span><span class="p">)</span>
+
+<span class="c"># Susie&#39;s Tests</span>
+<span class="n">tests</span><span class="o">.</span><span class="n">append_seperator</span><span class="p">(</span><span class="s">&#39;Susie</span><span class="se">\&#39;</span><span class="s">s Scores&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">test_row</span> <span class="ow">in</span> <span class="n">suzie_tests</span><span class="p">:</span>
+   <span class="n">tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_row</span><span class="p">)</span>
+
+<span class="c"># Write spreadsheet to disk</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;grades.xls&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tests</span><span class="o">.</span><span class="n">xls</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The resulting <strong>tests.xls</strong> will have the following layout:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Daniel&#8217;s Scores:</dt>
+<dd><ul class="first last simple">
+<li>&#8216;11/24/09&#8217;, &#8216;Math 101 Mid-term Exam&#8217;, 56.</li>
+<li>&#8216;05/24/10&#8217;, &#8216;Math 101 Final Exam&#8217;, 62.</li>
+</ul>
+</dd>
+<dt>Suzie&#8217;s Scores:</dt>
+<dd><ul class="first last simple">
+<li>&#8216;11/24/09&#8217;, &#8216;Math 101 Mid-term Exam&#8217;, 56.</li>
+<li>&#8216;05/24/10&#8217;, &#8216;Math 101 Final Exam&#8217;, 62.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition-format-support admonition ">
+<p class="first admonition-title">Format Support</p>
+<p class="last">At this time, only <a class="reference internal" href="api.html#tablib.Dataset.xls" title="tablib.Dataset.xls"><tt class="xref py py-class docutils literal"><span class="pre">Excel</span></tt></a> output supports separators.</p>
+</div>
+<hr class="docutils" />
+<p>Now, go check out the <a class="reference internal" href="api.html#api"><em>API Documentation</em></a> or begin <a class="reference internal" href="development.html#development"><em>Tablib Development</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Kenneth Reitz. Styles (modified) &amp;copy; Armin Ronacher.
+    </div>
+  </body>
+</html>

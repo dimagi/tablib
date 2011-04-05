@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Tablib 0.9.4 documentation</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Tablib: Pythonic Tabular Datasets</text>
+      </navLabel>
+      <content src="index.html" />
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Introduction</text>
+      </navLabel>
+      <content src="intro.html" />
+      <navPoint id="navPoint2" playOrder="2">
+        <navLabel>
+          <text>Introduction</text>
+        </navLabel>
+        <content src="intro.html" />
+      </navPoint>
+      <navPoint id="navPoint3" playOrder="3">
+        <navLabel>
+          <text>Philosphy</text>
+        </navLabel>
+        <content src="intro.html#philosphy" />
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="4">
+        <navLabel>
+          <text>MIT License</text>
+        </navLabel>
+        <content src="intro.html#mit-license" />
+      </navPoint>
+      <navPoint id="navPoint5" playOrder="5">
+        <navLabel>
+          <text>Tablib License</text>
+        </navLabel>
+        <content src="intro.html#tablib-license" />
+      </navPoint>
+      <navPoint id="navPoint6" playOrder="6">
+        <navLabel>
+          <text>Pythons Supported</text>
+        </navLabel>
+        <content src="intro.html#pythons-supported" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint7" playOrder="7">
+      <navLabel>
+        <text>Installation</text>
+      </navLabel>
+      <content src="install.html" />
+      <navPoint id="navPoint7" playOrder="7">
+        <navLabel>
+          <text>Installation</text>
+        </navLabel>
+        <content src="install.html" />
+      </navPoint>
+      <navPoint id="navPoint8" playOrder="8">
+        <navLabel>
+          <text>Installing Tablib</text>
+        </navLabel>
+        <content src="install.html#installing-tablib" />
+      </navPoint>
+      <navPoint id="navPoint9" playOrder="9">
+        <navLabel>
+          <text>Download the Source</text>
+        </navLabel>
+        <content src="install.html#download-the-source" />
+        <navPoint id="navPoint9" playOrder="9">
+          <navLabel>
+            <text>Download the Source</text>
+          </navLabel>
+          <content src="install.html#download-the-source" />
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="10">
+          <navLabel>
+            <text>Speed Extentions</text>
+          </navLabel>
+          <content src="install.html#id1" />
+        </navPoint>
+        <navPoint id="navPoint11" playOrder="11">
+          <navLabel>
+            <text>Staying Updated</text>
+          </navLabel>
+          <content src="install.html#staying-updated" />
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint12" playOrder="12">
+      <navLabel>
+        <text>Quickstart</text>
+      </navLabel>
+      <content src="tutorial.html" />
+      <navPoint id="navPoint12" playOrder="12">
+        <navLabel>
+          <text>Quickstart</text>
+        </navLabel>
+        <content src="tutorial.html" />
+      </navPoint>
+      <navPoint id="navPoint13" playOrder="13">
+        <navLabel>
+          <text>Creating a Dataset</text>
+        </navLabel>
+        <content src="tutorial.html#creating-a-dataset" />
+      </navPoint>
+      <navPoint id="navPoint14" playOrder="14">
+        <navLabel>
+          <text>Adding Rows</text>
+        </navLabel>
+        <content src="tutorial.html#adding-rows" />
+      </navPoint>
+      <navPoint id="navPoint15" playOrder="15">
+        <navLabel>
+          <text>Adding Headers</text>
+        </navLabel>
+        <content src="tutorial.html#adding-headers" />
+      </navPoint>
+      <navPoint id="navPoint16" playOrder="16">
+        <navLabel>
+          <text>Adding Columns</text>
+        </navLabel>
+        <content src="tutorial.html#adding-columns" />
+      </navPoint>
+      <navPoint id="navPoint17" playOrder="17">
+        <navLabel>
+          <text>Exporting Data</text>
+        </navLabel>
+        <content src="tutorial.html#exporting-data" />
+      </navPoint>
+      <navPoint id="navPoint18" playOrder="18">
+        <navLabel>
+          <text>Selecting Rows &amp; Columns</text>
+        </navLabel>
+        <content src="tutorial.html#selecting-rows-columns" />
+      </navPoint>
+      <navPoint id="navPoint19" playOrder="19">
+        <navLabel>
+          <text>Removing Rows &amp; Columns</text>
+        </navLabel>
+        <content src="tutorial.html#removing-rows-columns" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint20" playOrder="20">
+      <navLabel>
+        <text>Advanced Usage</text>
+      </navLabel>
+      <content src="tutorial.html#advanced-usage" />
+      <navPoint id="navPoint20" playOrder="20">
+        <navLabel>
+          <text>Advanced Usage</text>
+        </navLabel>
+        <content src="tutorial.html#advanced-usage" />
+      </navPoint>
+      <navPoint id="navPoint21" playOrder="21">
+        <navLabel>
+          <text>Dynamic Columns</text>
+        </navLabel>
+        <content src="tutorial.html#dynamic-columns" />
+      </navPoint>
+      <navPoint id="navPoint22" playOrder="22">
+        <navLabel>
+          <text>Filtering Datasets with Tags</text>
+        </navLabel>
+        <content src="tutorial.html#filtering-datasets-with-tags" />
+        <navPoint id="navPoint22" playOrder="22">
+          <navLabel>
+            <text>Filtering Datasets with Tags</text>
+          </navLabel>
+          <content src="tutorial.html#filtering-datasets-with-tags" />
+        </navPoint>
+        <navPoint id="navPoint23" playOrder="23">
+          <navLabel>
+            <text>Excel Workbook With Multiple Sheets</text>
+          </navLabel>
+          <content src="tutorial.html#excel-workbook-with-multiple-sheets" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint24" playOrder="24">
+        <navLabel>
+          <text>Seperators</text>
+        </navLabel>
+        <content src="tutorial.html#seperators" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint25" playOrder="25">
+      <navLabel>
+        <text>Development</text>
+      </navLabel>
+      <content src="development.html" />
+      <navPoint id="navPoint25" playOrder="25">
+        <navLabel>
+          <text>Development</text>
+        </navLabel>
+        <content src="development.html" />
+      </navPoint>
+      <navPoint id="navPoint26" playOrder="26">
+        <navLabel>
+          <text>Design Considerations</text>
+        </navLabel>
+        <content src="development.html#design-considerations" />
+      </navPoint>
+      <navPoint id="navPoint27" playOrder="27">
+        <navLabel>
+          <text>Source Control</text>
+        </navLabel>
+        <content src="development.html#source-control" />
+        <navPoint id="navPoint27" playOrder="27">
+          <navLabel>
+            <text>Source Control</text>
+          </navLabel>
+          <content src="development.html#source-control" />
+        </navPoint>
+        <navPoint id="navPoint28" playOrder="28">
+          <navLabel>
+            <text>Git Branch Structure</text>
+          </navLabel>
+          <content src="development.html#git-branch-structure" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint29" playOrder="29">
+        <navLabel>
+          <text>Adding New Formats</text>
+        </navLabel>
+        <content src="development.html#adding-new-formats" />
+        <navPoint id="navPoint29" playOrder="29">
+          <navLabel>
+            <text>Adding New Formats</text>
+          </navLabel>
+          <content src="development.html#adding-new-formats" />
+        </navPoint>
+        <navPoint id="navPoint30" playOrder="30">
+          <navLabel>
+            <text>Coding by Convention</text>
+          </navLabel>
+          <content src="development.html#coding-by-convention" />
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint31" playOrder="31">
+        <navLabel>
+          <text>Testing Tablib</text>
+        </navLabel>
+        <content src="development.html#testing-tablib" />
+      </navPoint>
+      <navPoint id="navPoint32" playOrder="32">
+        <navLabel>
+          <text>Continuous Integration</text>
+        </navLabel>
+        <content src="development.html#continuous-integration" />
+      </navPoint>
+      <navPoint id="navPoint33" playOrder="33">
+        <navLabel>
+          <text>Building the Docs</text>
+        </navLabel>
+        <content src="development.html#building-the-docs" />
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint34" playOrder="34">
+      <navLabel>
+        <text>API</text>
+      </navLabel>
+      <content src="api.html" />
+      <navPoint id="navPoint34" playOrder="34">
+        <navLabel>
+          <text>API</text>
+        </navLabel>
+        <content src="api.html" />
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="35">
+        <navLabel>
+          <text>Dataset Object</text>
+        </navLabel>
+        <content src="api.html#dataset-object" />
+      </navPoint>
+      <navPoint id="navPoint36" playOrder="36">
+        <navLabel>
+          <text>Databook Object</text>
+        </navLabel>
+        <content src="api.html#databook-object" />
+      </navPoint>
+      <navPoint id="navPoint37" playOrder="37">
+        <navLabel>
+          <text>Functions</text>
+        </navLabel>
+        <content src="api.html#functions" />
+      </navPoint>
+      <navPoint id="navPoint38" playOrder="38">
+        <navLabel>
+          <text>Exceptions</text>
+        </navLabel>
+        <content src="api.html#exceptions" />
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

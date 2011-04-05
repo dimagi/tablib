@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Quickstart"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Tablib 0.9.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation</h1>
+<p>This part of the documentation covers the installation of Tablib. The first step to using any software package is getting it properly installed. Please read this section carefully, or you may miss out on some nice  <em class="xref std std-ref">speed enhancements</em>.</p>
+<div class="section" id="installing-tablib">
+<span id="installing"></span><h2>Installing Tablib</h2>
+<p>To install Tablib, it only takes one simple command.</p>
+<div class="highlight-python"><pre>$ pip install tablib</pre>
+</div>
+<p>Or, if you must:</p>
+<div class="highlight-python"><pre>$ easy_install tablib</pre>
+</div>
+<p>But, you really shouldn&#8217;t do that.</p>
+</div>
+<div class="section" id="download-the-source">
+<h2>Download the Source</h2>
+<p>You can also install tablib from source. The latest release (0.9.4) is available from GitHub.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://github.com/kennethreitz/tablib/tarball/master">tarball</a><span class="link-target"> [http://github.com/kennethreitz/tablib/tarball/master]</span></li>
+<li><a class="reference external" href="http://github.com/kennethreitz/tablib/zipball/master">zipball</a><span class="link-target"> [http://github.com/kennethreitz/tablib/zipball/master]</span></li>
+</ul>
+<p>Once you have a copy of the source, you can embed it in your Python package, or install it into your site-packages easily.</p>
+<div class="highlight-python"><pre>$ python setup.py install</pre>
+</div>
+<p>To download the full source history from Git, see <a class="reference internal" href="development.html#scm"><em>Source Control</em></a>.</p>
+<div class="section" id="id1">
+<h3>Speed Extentions</h3>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.8.5.</span></p>
+<p>Tablib is partially dependent on the <strong>pyyaml</strong>, <strong>simplejson</strong>, and <strong>xlwt</strong> modules. To reduce installation issues, fully integrated versions of all required libraries are included in Tablib.</p>
+<p>However, if performance is important to you (and it should be), you can install  <strong>pyyaml</strong> with C extentions from PyPi.</p>
+<div class="highlight-python"><pre>$ pip install PyYAML</pre>
+</div>
+<p>If you&#8217;re using Python 2.5, you should also install the <strong>simplejson</strong> module (pip will do this for you). If you&#8217;re using Python 2.6+, the built-in <strong>json</strong> module is already optimized and in use.</p>
+<div class="highlight-python"><pre>$ pip install simplejson</pre>
+</div>
+</div>
+<div class="section" id="staying-updated">
+<h3>Staying Updated</h3>
+<p>The latest version of Tablib will always be available here:</p>
+<ul class="simple">
+<li>PyPi: <a class="reference external" href="http://pypi.python.org/pypi/tablib/">http://pypi.python.org/pypi/tablib/</a></li>
+<li>GitHub: <a class="reference external" href="http://github.com/kennethreitz/tablib/">http://github.com/kennethreitz/tablib/</a></li>
+</ul>
+<p>When a new version is available, upgrading is simple.</p>
+<div class="highlight-python"><pre>$ pip install tablib --upgrade</pre>
+</div>
+<p>Now, go get a <a class="reference internal" href="tutorial.html#quickstart"><em>Quick Start</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Kenneth Reitz. Styles (modified) &amp;copy; Armin Ronacher.
+    </div>
+  </body>
+</html>

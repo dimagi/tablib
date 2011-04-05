@@ -1,0 +1,431 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API &mdash; Tablib v0.9.5 documentation</title>
+    <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Tablib v0.9.5 documentation" href="index.html" />
+    <link rel="prev" title="Development" href="development.html" />
+   
+  
+  <link media="only screen and (max-device-width: 480px)" href="_static/small_flask.css" type= "text/css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="development.html" title="Development"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Tablib v0.9.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="api">
+<span id="id1"></span><h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-tablib"></span><p>This part of the documentation covers all the interfaces of Tablib.  For
+parts where Tablib depends on external libraries, we document the most
+important right here and provide links to the canonical documentation.</p>
+<div class="section" id="dataset-object">
+<h2>Dataset Object<a class="headerlink" href="#dataset-object" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tablib.Dataset">
+<em class="property">class </em><tt class="descclassname">tablib.</tt><tt class="descname">Dataset</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#tablib.Dataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>The <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object is the heart of Tablib. It provides all core
+functionality.</p>
+<p>Usually you create a <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> instance in your main module, and append
+rows and columns as you collect data.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">,</span> <span class="s">&#39;age&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="ow">in</span> <span class="n">some_collector</span><span class="p">():</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>You can also set rows and headers upon instantiation. This is useful if dealing
+with dozens or hundres of <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> objects.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">headers</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;first_name&#39;</span><span class="p">,</span> <span class="s">&#39;last_name&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;John&#39;</span><span class="p">,</span> <span class="s">&#39;Adams&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;George&#39;</span><span class="p">,</span> <span class="s">&#39;Washington&#39;</span><span class="p">)]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>*args</strong> &#8211; (optional) list of rows to populate Dataset</li>
+<li><strong>headers</strong> &#8211; (optional) list strings for Dataset header row</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-format-attributes-definition admonition ">
+<p class="first admonition-title">Format Attributes Definition</p>
+<p class="last">If you look at the code, the various output/import formats are not
+defined within the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. To add support for a new format, see
+<a class="reference internal" href="development.html#newformats"><em>Adding New Formats</em></a>.</p>
+</div>
+<dl class="method">
+<dt id="tablib.Dataset.add_formatter">
+<tt class="descname">add_formatter</tt><big>(</big><em>col</em>, <em>handler</em><big>)</big><a class="headerlink" href="#tablib.Dataset.add_formatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a <em class="xref std std-ref">formatter</em> to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.</p>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.9.5: </span>:param col: column to. Accepts index int or header str.
+:param handler: reference to callback function to execute 
+against each cell value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.append">
+<tt class="descname">append</tt><big>(</big><em>row=None</em>, <em>col=None</em>, <em>header=None</em>, <em>tags=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#tablib.Dataset.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a row or column to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.
+Usage is  <a class="reference internal" href="#tablib.Dataset.insert" title="tablib.Dataset.insert"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.insert</span></tt></a> for documentation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.append_separator">
+<tt class="descname">append_separator</tt><big>(</big><em>text=u'-'</em><big>)</big><a class="headerlink" href="#tablib.Dataset.append_separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a <a class="reference internal" href="tutorial.html#seperators"><em>seperator</em></a> to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.csv">
+<tt class="descname">csv</tt><a class="headerlink" href="#tablib.Dataset.csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>A CSV representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. The top row will contain
+headers, if they have been set. Otherwise, the top row will contain
+the first row of the dataset.</p>
+<p>A dataset object can also be imported by setting the <a class="reference internal" href="#tablib.Dataset.csv" title="tablib.Dataset.csv"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.csv</span></tt></a> attribute.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">csv</span> <span class="o">=</span> <span class="s">&#39;age, first_name, last_name</span><span class="se">\n</span><span class="s">90, John, Adams&#39;</span>
+</pre></div>
+</div>
+<p>Import assumes (for now) that headers exist.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.dict">
+<tt class="descname">dict</tt><a class="headerlink" href="#tablib.Dataset.dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>A native Python representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. If headers have 
+been set, a list of Python dictionaries will be returned. If no headers have been set, 
+a list of tuples (rows) will be returned instead.</p>
+<p>A dataset object can also be imported by setting the <cite>Dataset.dict</cite> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="s">&#39;[{&quot;last_name&quot;: &quot;Adams&quot;,&quot;age&quot;: 90,&quot;first_name&quot;: &quot;John&quot;}]&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.filter">
+<tt class="descname">filter</tt><big>(</big><em>tag</em><big>)</big><a class="headerlink" href="#tablib.Dataset.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a new instance of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>, excluding any rows
+that do not contain the given <a class="reference internal" href="tutorial.html#tags"><em>tags</em></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.headers">
+<tt class="descname">headers</tt><a class="headerlink" href="#tablib.Dataset.headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>An <em>optional</em> list of strings to be used for header rows and attribute names.</p>
+<p>This must be set manually. The given list length must equal <a class="reference internal" href="#tablib.Dataset.width" title="tablib.Dataset.width"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.width</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.height">
+<tt class="descname">height</tt><a class="headerlink" href="#tablib.Dataset.height" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of rows currently in the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.
+Cannot be directly modified.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.html">
+<tt class="descname">html</tt><a class="headerlink" href="#tablib.Dataset.html" title="Permalink to this definition">¶</a></dt>
+<dd><p>A HTML table representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. If
+headers have been set, they will be used as table headers.</p>
+<p>..notice:: This method can be used for export only.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.insert">
+<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>row=None</em>, <em>col=None</em>, <em>header=None</em>, <em>tags=</em><span class="optional">[</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#tablib.Dataset.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inserts a row or column to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> at the given index.</p>
+<p>Rows and columns inserted must be the correct size (height or width).</p>
+<p>The default behaviour is to insert the given row to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>
+object at the given index. If the <tt class="docutils literal"><span class="pre">col</span></tt> parameter is given, however,
+a new column will be insert to the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object instead.</p>
+<p>You can also insert a column of a single callable object, which will
+add a new column with the return values of the callable each as an
+item in the column.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="tutorial.html#dyncols"><em>Dynamic Columns</em></a> for an in-depth example.</p>
+<p class="versionchanged">
+<span class="versionmodified">Changed in version 0.9.0: </span>If inserting a column, and <a class="reference internal" href="#tablib.Dataset.headers" title="tablib.Dataset.headers"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.headers</span></tt></a> is set, the
+header attribute must be set, and will be considered the header for
+that row.</p>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.9.0: </span>If inserting a row, you can add <a class="reference internal" href="tutorial.html#tags"><em>tags</em></a> to the row you are inserting.
+This gives you the ability to <a class="reference internal" href="#tablib.Dataset.filter" title="tablib.Dataset.filter"><tt class="xref py py-class docutils literal"><span class="pre">filter</span></tt></a> your
+<a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> later.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.insert_separator">
+<tt class="descname">insert_separator</tt><big>(</big><em>index</em>, <em>text=u'-'</em><big>)</big><a class="headerlink" href="#tablib.Dataset.insert_separator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a separator to <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> at given index.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.json">
+<tt class="descname">json</tt><a class="headerlink" href="#tablib.Dataset.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>A JSON representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. If headers have been
+set, a JSON list of objects will be returned. If no headers have
+been set, a JSON list of lists (rows) will be returned instead.</p>
+<p>A dataset object can also be imported by setting the <a class="reference internal" href="#tablib.Dataset.json" title="tablib.Dataset.json"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.json</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="s">&#39;[{age: 90, first_name: &quot;John&quot;, liast_name: &quot;Adams&quot;}]&#39;</span>
+</pre></div>
+</div>
+<p>Import assumes (for now) that headers exist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.sort">
+<tt class="descname">sort</tt><big>(</big><em>col</em>, <em>reverse=False</em><big>)</big><a class="headerlink" href="#tablib.Dataset.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort a <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> by a specific column, given string (for
+header) or integer (for column index). The order can be reversed by
+setting <tt class="docutils literal"><span class="pre">reverse</span></tt> to <tt class="xref docutils literal"><span class="pre">True</span></tt>. 
+Returns a new <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> instance where columns have been
+sorted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.stack_columns">
+<tt class="descname">stack_columns</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#tablib.Dataset.stack_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stack two <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> instances together by
+joining at the column level, and return a new
+combined <tt class="docutils literal"><span class="pre">Dataset</span></tt> instance. If either <tt class="docutils literal"><span class="pre">Dataset</span></tt>
+has headers set, than the other must as well.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.stack_rows">
+<tt class="descname">stack_rows</tt><big>(</big><em>other</em><big>)</big><a class="headerlink" href="#tablib.Dataset.stack_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stack two <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> instances together by
+joining at the row level, and return new combined
+<tt class="docutils literal"><span class="pre">Dataset</span></tt> instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.transpose">
+<tt class="descname">transpose</tt><big>(</big><big>)</big><a class="headerlink" href="#tablib.Dataset.transpose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transpose a <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>, turning rows into columns and vice
+versa, returning a new <tt class="docutils literal"><span class="pre">Dataset</span></tt> instance. The first row of the
+original instance becomes the new header row.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.tsv">
+<tt class="descname">tsv</tt><a class="headerlink" href="#tablib.Dataset.tsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>A TSV representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. The top row will contain
+headers, if they have been set. Otherwise, the top row will contain
+the first row of the dataset.</p>
+<p>A dataset object can also be imported by setting the <a class="reference internal" href="#tablib.Dataset.tsv" title="tablib.Dataset.tsv"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.tsv</span></tt></a> attribute.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">tsv</span> <span class="o">=</span> <span class="s">&#39;age     first_name      last_name</span><span class="se">\n</span><span class="s">90   John    Adams&#39;</span>
+</pre></div>
+</div>
+<p>Import assumes (for now) that headers exist.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.width">
+<tt class="descname">width</tt><a class="headerlink" href="#tablib.Dataset.width" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of columns currently in the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a>.
+Cannot be directly modified.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Dataset.wipe">
+<tt class="descname">wipe</tt><big>(</big><big>)</big><a class="headerlink" href="#tablib.Dataset.wipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all content and headers from the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.xls">
+<tt class="descname">xls</tt><a class="headerlink" href="#tablib.Dataset.xls" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Excel Spreadsheet representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object, with <a class="reference internal" href="tutorial.html#seperators"><em>Seperators</em></a>. Cannot be set.</p>
+<div class="admonition-binary-warning admonition ">
+<p class="first admonition-title">Binary Warning</p>
+<p><a class="reference internal" href="#tablib.Dataset.xls" title="tablib.Dataset.xls"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.xls</span></tt></a> contains binary data, so make sure to write in binary mode:</p>
+<div class="last highlight-python"><pre>with open('output.xls', 'wb') as f:
+    f.write(data.xls)'</pre>
+</div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Dataset.yaml">
+<tt class="descname">yaml</tt><a class="headerlink" href="#tablib.Dataset.yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>A YAML representation of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> object. If headers have been
+set, a YAML list of objects will be returned. If no headers have
+been set, a YAML list of lists (rows) will be returned instead.</p>
+<p>A dataset object can also be imported by setting the <a class="reference internal" href="#tablib.Dataset.json" title="tablib.Dataset.json"><tt class="xref py py-class docutils literal"><span class="pre">Dataset.json</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">tablib</span><span class="o">.</span><span class="n">Dataset</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">yaml</span> <span class="o">=</span> <span class="s">&#39;- {age: 90, first_name: John, last_name: Adams}&#39;</span>
+</pre></div>
+</div>
+<p>Import assumes (for now) that headers exist.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="databook-object">
+<h2>Databook Object<a class="headerlink" href="#databook-object" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tablib.Databook">
+<em class="property">class </em><tt class="descclassname">tablib.</tt><tt class="descname">Databook</tt><big>(</big><em>sets=None</em><big>)</big><a class="headerlink" href="#tablib.Databook" title="Permalink to this definition">¶</a></dt>
+<dd><p>A book of <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> objects.</p>
+<dl class="method">
+<dt id="tablib.Databook.add_sheet">
+<tt class="descname">add_sheet</tt><big>(</big><em>dataset</em><big>)</big><a class="headerlink" href="#tablib.Databook.add_sheet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds given <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> to the <a class="reference internal" href="#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="tablib.Databook.size">
+<tt class="descname">size</tt><a class="headerlink" href="#tablib.Databook.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of the <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> objects within <a class="reference internal" href="#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tablib.Databook.wipe">
+<tt class="descname">wipe</tt><big>(</big><big>)</big><a class="headerlink" href="#tablib.Databook.wipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes all <a class="reference internal" href="#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> objects from the <a class="reference internal" href="#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="tablib.detect">
+<tt class="descclassname">tablib.</tt><tt class="descname">detect</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#tablib.detect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return (format, stream) of given stream.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="tablib.import_set">
+<tt class="descclassname">tablib.</tt><tt class="descname">import_set</tt><big>(</big><em>stream</em><big>)</big><a class="headerlink" href="#tablib.import_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dataset of given stream.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="tablib.InvalidDatasetType">
+<em class="property">class </em><tt class="descclassname">tablib.</tt><tt class="descname">InvalidDatasetType</tt><a class="headerlink" href="#tablib.InvalidDatasetType" title="Permalink to this definition">¶</a></dt>
+<dd><p>You&#8217;re trying to add something that doesn&#8217;t quite look right.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="tablib.InvalidDimensions">
+<em class="property">class </em><tt class="descclassname">tablib.</tt><tt class="descname">InvalidDimensions</tt><a class="headerlink" href="#tablib.InvalidDimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p>You&#8217;re trying to add something that doesn&#8217;t quite fit right.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="tablib.UnsupportedFormat">
+<em class="property">class </em><tt class="descclassname">tablib.</tt><tt class="descname">UnsupportedFormat</tt><a class="headerlink" href="#tablib.UnsupportedFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>You&#8217;re trying to add something that doesn&#8217;t quite taste right.</p>
+</dd></dl>
+
+<p>Now, go start some <a class="reference internal" href="development.html#development"><em>Tablib Development</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API</a><ul>
+<li><a class="reference internal" href="#dataset-object">Dataset Object</a></li>
+<li><a class="reference internal" href="#databook-object">Databook Object</a></li>
+<li><a class="reference internal" href="#functions">Functions</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="development.html" title="previous chapter">Development</a></li>
+  </ul></li>
+</ul>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2011, Kenneth Reitz. Styles (modified) &copy; Armin Ronacher.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    </div>
+  </body>
+</html>

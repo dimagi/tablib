@@ -1,0 +1,15 @@
+development.rst:8: [redirected] http://github.com/kennethreitz/tablib/ to https://github.com/kennethreitz/tablib/
+development.rst:8: [redirected] http://github.com/kennethreitz/tablib/ to https://github.com/kennethreitz/tablib/
+development.rst:45: [redirected] http://git-scm.org to http://git-scm.com/
+development.rst:55: [redirected] http://github.com/kennethreitz/tablib to https://github.com/kennethreitz/tablib
+development.rst:74: [redirected] http://github.com/kennethreitz/tablib/ to https://github.com/kennethreitz/tablib/
+development.rst:63: [redirected] http://github.com/nvie/gitflow to https://github.com/nvie/gitflow
+development.rst:155: [redirected] http://hudson.dev.java.net to http://java.net/projects/hudson/
+development.rst:177: [redirected] http://hudson.dev.java.net to http://java.net/projects/hudson/
+development.rst:181: [broken] http://git.kennethreitz.com/ci/: HTTP Error 404: Not Found
+development.rst:217: [redirected] http://github.com/michaeljones/sphinx-to-github to https://github.com/michaeljones/sphinx-to-github
+development.rst:219: [redirected] http://github.com/mojombo/jekyll to https://github.com/mojombo/jekyll
+development.rst:226: [redirected] http://github.com/michaeljones/sphinx-to-github to https://github.com/michaeljones/sphinx-to-github
+install.rst:71: [redirected] http://github.com/kennethreitz/tablib/ to https://github.com/kennethreitz/tablib/
+install.rst:31: [redirected] http://github.com/kennethreitz/tablib/tarball/master to https://download.github.com/kennethreitz-tablib-v0.9.3-1-g0843a15.tar.gz
+install.rst:32: [redirected] http://github.com/kennethreitz/tablib/zipball/master to https://download.github.com/kennethreitz-tablib-v0.9.3-1-g0843a15.zip

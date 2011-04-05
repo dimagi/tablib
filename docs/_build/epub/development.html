@@ -1,0 +1,225 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Development</title>
+    
+    <link rel="stylesheet" href="_static/epub.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api.html" title="API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Quickstart"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Tablib 0.9.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="development">
+<span id="id1"></span><h1>Development</h1>
+<p>Tablib is under active development, and contributors are welcome.</p>
+<p>If you have a feature request, suggestion, or bug report, please open a new issue on <a class="reference external" href="http://github.com/kennethreitz/tablib/">GitHub</a><span class="link-target"> [http://github.com/kennethreitz/tablib/]</span>. To submit patches, please send a pull request on <a class="reference external" href="http://github.com/kennethreitz/tablib/">GitHub</a><span class="link-target"> [http://github.com/kennethreitz/tablib/]</span>.</p>
+<p>If you&#8217;d like to contribute, there&#8217;s plenty to do. Here&#8217;s a short todo list.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add seperator support to HTML out</li>
+<li>Hooks System
+- pre/post-append
+- pre/post-import
+- pre/post-export</li>
+<li>Big Data</li>
+<li>Backwards-compatible OrderedDict support</li>
+<li>Write more exhausive unit-tests.</li>
+<li>Write stress tests.</li>
+<li>Make CSV write customizable.</li>
+<li>Integrate django-tablib</li>
+<li>Mention django-tablib in Documention</li>
+<li>Dataset title usage in documentation (#17)</li>
+</ul>
+</div></blockquote>
+<div class="section" id="design-considerations">
+<span id="design"></span><h2>Design Considerations</h2>
+<p>Tablib was developed with a few <span class="target" id="index-0"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0020"><strong>PEP 20</strong></a><span class="link-target"> [http://www.python.org/dev/peps/pep-0020]</span> idioms in mind.</p>
+<ol class="arabic simple">
+<li>Beautiful is better than ugly.</li>
+<li>Explicit is better than implicit.</li>
+<li>Simple is better than complex.</li>
+<li>Complex is better than complicated.</li>
+<li>Readability counts.</li>
+</ol>
+<p>A few other things to keep in mind:</p>
+<ol class="arabic simple">
+<li>Keep your code DRY.</li>
+<li>Strive to be as simple (to use) as possible.</li>
+</ol>
+</div>
+<div class="section" id="source-control">
+<span id="scm"></span><h2>Source Control</h2>
+<p>Tablib source is controlled with <a class="reference external" href="http://git-scm.org">Git</a><span class="link-target"> [http://git-scm.org]</span>, the lean, mean, distributed source control machine.</p>
+<p>The repository is publicly accessable.</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git://github.com/kennethreitz/tablib.git</span></tt></div></blockquote>
+<p>The project is hosted both on <strong>GitHub</strong> and <strong>git.kennethreitz.com</strong>.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>GitHub:</dt>
+<dd><a class="reference external" href="http://github.com/kennethreitz/tablib">http://github.com/kennethreitz/tablib</a></dd>
+<dt>&#8220;Mirror&#8221;:</dt>
+<dd><a class="reference external" href="http://git.kennethreitz.com/projects/tablib">http://git.kennethreitz.com/projects/tablib</a></dd>
+</dl>
+</div></blockquote>
+<div class="section" id="git-branch-structure">
+<h3>Git Branch Structure</h3>
+<p>Feature / Hotfix / Release branches follow a <a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">Successful Git Branching Model</a><span class="link-target"> [http://nvie.com/posts/a-successful-git-branching-model/]</span> . <a class="reference external" href="http://github.com/nvie/gitflow">Git-flow</a><span class="link-target"> [http://github.com/nvie/gitflow]</span> is a great tool for managing the repository. I highly recommend it.</p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">develop</span></tt></dt>
+<dd>The &#8220;next release&#8221; branch. Likely unstable.</dd>
+<dt><tt class="docutils literal"><span class="pre">master</span></tt></dt>
+<dd>Current production release (0.9.4) on PyPi.</dd>
+<dt><tt class="docutils literal"><span class="pre">gh-pages</span></tt></dt>
+<dd>Current release of <a class="reference external" href="http://tablib.org">http://tablib.org</a>.</dd>
+</dl>
+<p>Each release is tagged.</p>
+<p>When submitting patches, please place your feature/change in its own branch prior to opening a pull reqeust on <a class="reference external" href="http://github.com/kennethreitz/tablib/">GitHub</a><span class="link-target"> [http://github.com/kennethreitz/tablib/]</span>.</p>
+</div>
+</div>
+<div class="section" id="adding-new-formats">
+<span id="newformats"></span><h2>Adding New Formats</h2>
+<p>Tablib welcomes new format additions! Format suggestions include:</p>
+<ul class="simple">
+<li>Tab Separated Values</li>
+<li>MySQL Dump</li>
+<li>HTML Table</li>
+</ul>
+<div class="section" id="coding-by-convention">
+<h3>Coding by Convention</h3>
+<p>Tablib features a micro-framework for adding format support. The easiest way to understand it is to use it. So, let&#8217;s define our own format, named <em>xxx</em>.</p>
+<ol class="arabic">
+<li><p class="first">Write a new format interface.</p>
+<blockquote>
+<div><p><tt class="xref py py-class docutils literal"><span class="pre">tablib.core</span></tt> follows a simple pattern for automatically utilizing your format throughout Tablib. Function names are crucial.</p>
+<p>Example <strong>tablib/formats/_xxx.py</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">title</span> <span class="o">=</span> <span class="s">&#39;xxx&#39;</span>
+
+<span class="k">def</span> <span class="nf">export_set</span><span class="p">(</span><span class="n">dset</span><span class="p">):</span>
+    <span class="o">....</span>
+    <span class="c"># returns string representation of given dataset</span>
+
+<span class="k">def</span> <span class="nf">export_book</span><span class="p">(</span><span class="n">dbook</span><span class="p">):</span>
+    <span class="o">....</span>
+    <span class="c"># returns string representation of given databook</span>
+
+<span class="k">def</span> <span class="nf">import_set</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">in_stream</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c"># populates given Dataset with given datastream</span>
+
+<span class="k">def</span> <span class="nf">import_book</span><span class="p">(</span><span class="n">dbook</span><span class="p">,</span> <span class="n">in_stream</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c"># returns Databook instance</span>
+
+<span class="k">def</span> <span class="nf">detect</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+    <span class="o">...</span>
+    <span class="c"># returns True if given stream is parsable as xxx</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition-excluding-support admonition ">
+<p class="first admonition-title">Excluding Support</p>
+<p class="last">If the format excludes support for an import/export mechanism (<em>eg.</em> <a class="reference internal" href="api.html#tablib.Dataset.csv" title="tablib.Dataset.csv"><tt class="xref py py-class docutils literal"><span class="pre">csv</span></tt></a> excludes <a class="reference internal" href="api.html#tablib.Databook" title="tablib.Databook"><tt class="xref py py-class docutils literal"><span class="pre">Databook</span></tt></a> support), simply don&#8217;t define the respective functions. Appropriate errors will be raised.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li>Add your new format module to the <tt class="xref py py-class docutils literal"><span class="pre">tablib.formats.avalable</span></tt> tuple.</li>
+<li>Add a mock property to the <a class="reference internal" href="api.html#tablib.Dataset" title="tablib.Dataset"><tt class="xref py py-class docutils literal"><span class="pre">Dataset</span></tt></a> class with verbose <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructured Text</a><span class="link-target"> [http://docutils.sourceforge.net/rst.html]</span> docstring. This alleviates IDE confusion, and allows for pretty auto-generated <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a><span class="link-target"> [http://sphinx.pocoo.org]</span> documentation.</li>
+<li>Write respective <a class="reference internal" href="#testing"><em>tests</em></a>.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="testing-tablib">
+<span id="testing"></span><h2>Testing Tablib</h2>
+<p>Testing is crucial to Tablib&#8217;s stability. This stable project is used in production by many companies and developers, so it is important to be certain that every version released is fully operational. When developing a new feature for Tablib, be sure to write proper tests for it as well.</p>
+<p>When developing a feature for Tablib, the easiest way to test your changes for potential issues is to simply run the test suite directly.</p>
+<div class="highlight-python"><pre>$ ./test_tablib.py</pre>
+</div>
+<p><a class="reference external" href="http://hudson.dev.java.net">Hudson CI</a><span class="link-target"> [http://hudson.dev.java.net]</span>, amongst other tools, supports Java&#8217;s xUnit testing report format. <a class="reference external" href="http://somethingaboutorange.com/mrl/projects/nose/">Nose</a><span class="link-target"> [http://somethingaboutorange.com/mrl/projects/nose/]</span> allows us to generate our own xUnit reports.</p>
+<p>Installing nose is simple.</p>
+<div class="highlight-python"><pre>$ pip install nose</pre>
+</div>
+<p>Once installed, we can generate our xUnit report with a single command.</p>
+<div class="highlight-python"><pre>$ nosetests test_tablib.py --with-xunit</pre>
+</div>
+<p>This will generate a <strong>nosetests.xml</strong> file, which can then be analyzed.</p>
+</div>
+<div class="section" id="continuous-integration">
+<span id="hudson"></span><h2>Continuous Integration</h2>
+<p>Every commit made to the <strong>develop</strong> branch is automatically tested and inspected upon receipt with <a class="reference external" href="http://hudson.dev.java.net">Hudson CI</a><span class="link-target"> [http://hudson.dev.java.net]</span>. If you have access to the main repository and broke the build, you will receive an email accordingly.</p>
+<p>Anyone may view the build status and history at any time.</p>
+<blockquote>
+<div><a class="reference external" href="http://ci.kennethreitz.com/">http://ci.kennethreitz.com/</a></div></blockquote>
+<p>If you are trustworthy and plan to contribute to tablib on a regular basis, please contact <a class="reference external" href="http://kennethreitz.com/contact-me/">Kenneth Reitz</a><span class="link-target"> [http://kennethreitz.com/contact-me/]</span> to get an account on the Hudson Server.</p>
+<p>Additional reports will also be included here in the future, including <span class="target" id="index-1"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0008"><strong>PEP 8</strong></a><span class="link-target"> [http://www.python.org/dev/peps/pep-0008]</span> checks and stress reports for extremely large datasets.</p>
+</div>
+<div class="section" id="building-the-docs">
+<span id="docs"></span><h2>Building the Docs</h2>
+<p>Documentation is written in the powerful, flexible, and standard Python documentation format, <a class="reference external" href="http://docutils.sourceforge.net/rst.html">reStructured Text</a><span class="link-target"> [http://docutils.sourceforge.net/rst.html]</span>.
+Documentation builds are powered by the powerful Pocoo project, <a class="reference external" href="http://sphinx.pocoo.org">Sphinx</a><span class="link-target"> [http://sphinx.pocoo.org]</span>. The <a class="reference internal" href="api.html#api"><em>API Documentation</em></a> is mostly documented inline throughout the module.</p>
+<p>The Docs live in <tt class="docutils literal"><span class="pre">tablib/docs</span></tt>. In order to build them, you will first need to install Sphinx.</p>
+<div class="highlight-python"><pre>$ pip install sphinx</pre>
+</div>
+<p>Then, to build an HTML version of the docs, simply run the following from the <strong>docs</strong> directory:</p>
+<div class="highlight-python"><pre>$ make html</pre>
+</div>
+<p>Your <tt class="docutils literal"><span class="pre">docs/_build/html</span></tt> directory will then contain an HTML representation of the documentation, ready for publication on most web servers.</p>
+<p>You can also generate the documentation in <strong>ebpub</strong>, <strong>latex</strong>, <strong>json</strong>, <em>&amp;c</em> similarly.</p>
+<div class="admonition-github-pages admonition ">
+<p class="first admonition-title">GitHub Pages</p>
+<p>To push the documentation up to <a class="reference external" href="http://pages.github.com">GitHub Pages</a><span class="link-target"> [http://pages.github.com]</span>, you will first need to run <a class="reference external" href="http://github.com/michaeljones/sphinx-to-github">sphinx-to-github</a><span class="link-target"> [http://github.com/michaeljones/sphinx-to-github]</span> against your <tt class="docutils literal"><span class="pre">docs/_build/html</span></tt> directory.</p>
+<p>GitHub Pages are powered by an HTML generation system called <a class="reference external" href="http://github.com/mojombo/jekyll">Jeckyl</a><span class="link-target"> [http://github.com/mojombo/jekyll]</span>, which is configured to ignore files and folders that begin with &#8220;<tt class="docutils literal"><span class="pre">_</span></tt>&#8221; (<em>ie.</em> <strong>_static</strong>).</p>
+<blockquote>
+<div>and <a class="reference external" href="http://github.com/michaeljones/sphinx-to-github">sphinx-to-github</a><span class="link-target"> [http://github.com/michaeljones/sphinx-to-github]</span>.</div></blockquote>
+<p>Installing sphinx-to-github is simple.</p>
+<div class="highlight-python"><pre>$ pip install sphinx-to-github</pre>
+</div>
+<p>Running it against the docs is even simpler.</p>
+<div class="highlight-python"><pre>$ sphinx-to-github _build/html</pre>
+</div>
+<p class="last">Move the resulting files to the <strong>gh-pages</strong> branch of your repository, and push it up to GitHub.</p>
+</div>
+<hr class="docutils" />
+<p>Make sure to check out the <a class="reference internal" href="api.html#api"><em>API Documentation</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Kenneth Reitz. Styles (modified) &amp;copy; Armin Ronacher.
+    </div>
+  </body>
+</html>

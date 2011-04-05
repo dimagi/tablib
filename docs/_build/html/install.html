@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installation &mdash; Tablib v0.9.5 documentation</title>
+    <link rel="stylesheet" href="_static/flasky.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.5',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Tablib v0.9.5 documentation" href="index.html" />
+    <link rel="next" title="Quickstart" href="tutorial.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+   
+  
+  <link media="only screen and (max-device-width: 480px)" href="_static/small_flask.css" type= "text/css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="tutorial.html" title="Quickstart"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Tablib v0.9.5 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>This part of the documentation covers the installation of Tablib. The first step to using any software package is getting it properly installed. Please read this section carefully, or you may miss out on some nice  <em class="xref std std-ref">speed enhancements</em>.</p>
+<div class="section" id="installing-tablib">
+<span id="installing"></span><h2>Installing Tablib<a class="headerlink" href="#installing-tablib" title="Permalink to this headline">¶</a></h2>
+<p>To install Tablib, it only takes one simple command.</p>
+<div class="highlight-python"><pre>$ pip install tablib</pre>
+</div>
+<p>Or, if you must:</p>
+<div class="highlight-python"><pre>$ easy_install tablib</pre>
+</div>
+<p>But, you really shouldn&#8217;t do that.</p>
+</div>
+<div class="section" id="download-the-source">
+<h2>Download the Source<a class="headerlink" href="#download-the-source" title="Permalink to this headline">¶</a></h2>
+<p>You can also install tablib from source. The latest release (0.9.5) is available from GitHub.</p>
+<ul class="simple">
+<li><a class="reference external" href="http://github.com/kennethreitz/tablib/tarball/master">tarball</a></li>
+<li><a class="reference external" href="http://github.com/kennethreitz/tablib/zipball/master">zipball</a></li>
+</ul>
+<p>Once you have a copy of the source, you can embed it in your Python package, or install it into your site-packages easily.</p>
+<div class="highlight-python"><pre>$ python setup.py install</pre>
+</div>
+<p>To download the full source history from Git, see <a class="reference internal" href="development.html#scm"><em>Source Control</em></a>.</p>
+<div class="section" id="id1">
+<h3>Speed Extentions<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p class="versionadded">
+<span class="versionmodified">New in version 0.8.5.</span></p>
+<p>Tablib is partially dependent on the <strong>pyyaml</strong>, <strong>simplejson</strong>, and <strong>xlwt</strong> modules. To reduce installation issues, fully integrated versions of all required libraries are included in Tablib.</p>
+<p>However, if performance is important to you (and it should be), you can install  <strong>pyyaml</strong> with C extentions from PyPi.</p>
+<div class="highlight-python"><pre>$ pip install PyYAML</pre>
+</div>
+<p>If you&#8217;re using Python 2.5, you should also install the <strong>simplejson</strong> module (pip will do this for you). If you&#8217;re using Python 2.6+, the built-in <strong>json</strong> module is already optimized and in use.</p>
+<div class="highlight-python"><pre>$ pip install simplejson</pre>
+</div>
+</div>
+<div class="section" id="staying-updated">
+<h3>Staying Updated<a class="headerlink" href="#staying-updated" title="Permalink to this headline">¶</a></h3>
+<p>The latest version of Tablib will always be available here:</p>
+<ul class="simple">
+<li>PyPi: <a class="reference external" href="http://pypi.python.org/pypi/tablib/">http://pypi.python.org/pypi/tablib/</a></li>
+<li>GitHub: <a class="reference external" href="http://github.com/kennethreitz/tablib/">http://github.com/kennethreitz/tablib/</a></li>
+</ul>
+<p>When a new version is available, upgrading is simple.</p>
+<div class="highlight-python"><pre>$ pip install tablib --upgrade</pre>
+</div>
+<p>Now, go get a <a class="reference internal" href="tutorial.html#quickstart"><em>Quick Start</em></a>.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installation</a><ul>
+<li><a class="reference internal" href="#installing-tablib">Installing Tablib</a></li>
+<li><a class="reference internal" href="#download-the-source">Download the Source</a><ul>
+<li><a class="reference internal" href="#id1">Speed Extentions</a></li>
+<li><a class="reference internal" href="#staying-updated">Staying Updated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="intro.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="tutorial.html" title="next chapter">Quickstart</a></li>
+  </ul></li>
+</ul>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/install.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2011, Kenneth Reitz. Styles (modified) &copy; Armin Ronacher.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a>.
+    </div>
+  </body>
+</html>
